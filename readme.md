@@ -34,8 +34,8 @@
 ## Installation
 ### Clone
 ```
-$ git clone https://github.com/azmprllynsa/tokosidia-API.git
-$ cd tokosidia-API
+$ git clone https://github.com/azmprllynsa/SayApp-backend.git
+$ cd SayApp-backend
 $ npm install
 ```
 
@@ -93,7 +93,7 @@ Fork the Project
 4. Open a Pull Request
 
 ## Related Project
-* [`Frontend Tokosidia`](https://github.com/azmprllynsa/defri-ansyah/SayApp-frontend)
+* [`Frontend SayApp`](https://github.com/defri-ansyah/SayApp-frontend)
 
 ---
 Copyright © 2020 [Defri Ansyah](https://github.com/defri-ansyah)
