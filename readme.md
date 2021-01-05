@@ -34,7 +34,7 @@
 ## Installation
 ### Clone
 ```
-$ git clone https://github.com/azmprllynsa/SayApp-backend.git
+$ git clone https://github.com/defri-ansyah/SayApp-backend.git
 $ cd SayApp-backend
 $ npm install
 ```
