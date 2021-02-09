@@ -214,7 +214,7 @@ const updateImage = (req, res) => {
         res.status(200).json({
           'status': 'OK',
           'messages': 'image Berhasil di update',
-          'data' : {
+          'data': {
             image
           }
         })
@@ -240,16 +240,33 @@ const userOnline = (payload, socket) => {
     include: [{
       model: models.chat_room_member,
       as: 'current_user',
-      where:{
+      where: {
         user_id: payload.userId
       }
     }],
   })
     .then((rooms) => {
       if (rooms) {
-        console.log('user online: ', payload.userId);
         rooms.forEach(room => {
-          socket.join('room:'+room.id)
+          socket.join('room:' + room.id)
+
+          models.users.update({
+            status: 'online'
+          }, {
+            where: {
+              id: payload.userId
+            }
+          })
+            .then((user) => {
+              if (user) {
+                socket.broadcast.to('room:' + room.id).emit('refresh user status', payload.userId)
+              } else {
+                console.log('else')
+              }
+            })
+            .catch((err) => {
+              console.log(err)
+            })
         })
       } else {
         console.log('else')
@@ -258,67 +275,26 @@ const userOnline = (payload, socket) => {
     .catch((err) => {
       console.log(err)
     })
-    models.chat_room.findAll({
-    include: [{
-      model: models.chat_room_member,
-      as: 'current_user',
-      where:{
-        user_id: payload.userId
-      }
-    }],
-  })
-    .then((rooms) => {
-      if (rooms) {
-        console.log('user online: ', payload.userId);
-        rooms.forEach(room => {
-          socket.join('room:'+room.id)
-        })
-      } else {
-        console.log('else')
-      }
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-    models.users.update({
-      status: 'online'
-    },{
-      where:{
-        id: payload.userId
-      }
-  })
-  .then((user) => {
-    if (user) {
-      socket.emit('refresh user status')
-      console.log('refresh user status')
-    } else {
-      console.log('else')
-    }
-  })
-  .catch((err) => {
-    console.log(err)
-  })
 }
 
 const userOffline = (payload, socket) => {
-    models.users.update({
-      status: 'offline'
-    },{
-      where:{
-        id: payload.userId
-      }
-  })
-  .then((user) => {
-    if (user) {
-      socket.emit('refresh user status')
-      console.log('refresh user status offline')
-    } else {
-      console.log('else')
+  models.users.update({
+    status: 'offline'
+  }, {
+    where: {
+      id: payload.userId
     }
   })
-  .catch((err) => {
-    console.log(err)
-  })
+    .then((user) => {
+      if (user) {
+        socket.broadcast.emit('refresh user status', payload.userId)
+      } else {
+        console.log('else')
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
 }
 
 const editMap = (req, res) => {

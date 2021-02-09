@@ -22,7 +22,6 @@ app.use(bodyParser.json())
 app.use(morgan('dev'))
 app.use('/images', express.static('./images'))
 
-
 const io = socket(server, {
     cors: {
       origin: '*',
@@ -36,7 +35,6 @@ io.on("connection", (socket) => {
     socket.on('userOnline', (data) => {
       userControllers.userOnline(data, socket)
       users[socket.id] = data
-      console.log('user online data : ', users)
       
     })
     console.log('user online app: ', users[socket.id])
@@ -61,11 +59,9 @@ io.on("connection", (socket) => {
 // routes
 app.use('/api', routes)
 
-
-
 app.listen(PORT, () => console.log(`server is running port ${PORT}
 http://localhost:${PORT}`))
 
-server.listen(4040, ()=>{
+server.listen(`${process.env.SOCKET_PORT}`, ()=>{
     console.log(`server is running port ${PORT}`);
   })
