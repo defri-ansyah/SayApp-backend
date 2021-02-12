@@ -58,7 +58,7 @@ SOCKET_PORT = YOUR_SOCKET_PORT
 
 ### Start Development Server
 ```
-$ npm run serve
+$ npm run dev
 ```
 ## Link Collection Postman
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/076c71a6e0671ac3aa39)
