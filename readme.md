@@ -1,4 +1,10 @@
-<h1 align="center">SayApp</h1>
+<p align="center">
+  <a href="https://github.com/defri-ansyah/SayApp-backend">
+    <img src="./logo.png"  width="200px" alt="Logo">
+  </a>
+</p>
+
+<h3 align="center">SayApp</h3>
 
 [![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
 ![GitHub repo size](https://img.shields.io/github/repo-size/defri-ansyah/SayApp-backend)
@@ -42,15 +48,12 @@ $ npm install
 ## Create Environment Variable
 
 ```
-DB_HOST=YOUR_DB_HOST
-DB_USER=YOUR_DB_USER
-DB_PASSWORD=YOUR_DB_PASSWORD
-DB_NAME=YOUR_TABLE_NAME
-PORT=YOUR_PORT
-SECRET_KEY = YOUR_SECRET_KEY
-URL_EMAIL_CONFIRM = YOUR_EMAIL_VALIDATION_PAGE_FRONTEND
-EMAIL = YOUR_EMAIL_CONFIRMATION
-PASSWORD = YOUR_EMAIL_PASSWORD
+DB_PORT = YOUR_DB_PORT
+BASE_URL = YOUR_BASE_URL
+SECRET_KEY = YOUR_SECRET_KEY_FOR_JWT
+EMAIL_USERNAME = YOUR_EMAIL
+EMAIL_PASSWORD = YOUR_PASSWORD_EMAIL
+SOCKET_PORT = YOUR_SOCKET_PORT
 ```
 
 ### Start Development Server
@@ -58,25 +61,24 @@ PASSWORD = YOUR_EMAIL_PASSWORD
 $ npm run serve
 ```
 ## Link Collection Postman
-[Click Here](https://www.getpostman.com/collections/b14d5faf192b7b980d32)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/076c71a6e0671ac3aa39)
 
 ## API Endpoint
-### Auth Endpoint
-| No  | HTTP Method | URI                                           | Operation                                  |
-| --- | ----------- | --------------------------------------------- | ------------------------------------------ |
-| 1   | POST        | /api/auth/signup                              | Register new user                          |
-| 2   | POST        | /api/auth/login                               | login user                                 |
-| 3   | POST        | /api/auth/forgot-password/request             | Request forgot password via email          |
-| 4   | POST        | /api/auth/forgot-password/new-password/:token | Forgot password                            |
-| 9   | PATCH       | /api/auth/edit-password                       | Edit password from profile user            |
-
 ### User Endpoint
-| No  | HTTP Method | URI                              | Operation                                  |
-| --- | ----------- | -------------------------------- | ------------------------------------------ |
-| 1   | PATCH       | /api/user/edit-profile           | Edit profile user                          |
-| 2   | PATCH       | /api/user/update-image           | update image user                          |
-| 3   | DELETE      | /api/user/delete-image           | Delete image user                          |
-| 4   | GET         | /api/user/detail                 | Get detail user                            |
+| No  | HTTP Method | URI                           | Operation                 |
+| --- | ----------- | ----------------------------- | ------------------------- |
+| 1   | POST        | /api/user/signup              | Register new user         |
+| 2   | POST        | /api/user/login               | Login user                |
+| 3   | GET         | /api/user/detail              | Get detail user           |
+| 4   | PATCH       | /api/user/update-image        | Update image user         |
+| 5   | PATCH       | /api/user/update-map          | Update map user           |
+
+### Room Endpoint
+| No  | HTTP Method | URI                          | Operation                  |
+| --- | ----------- | ---------------------------- | -------------------------- |
+| 1   | GET         | /api/room/list               | Get room list by user      |
+| 2   | POST        | /api/chat/send               | Send chat                  |
+| 3   | GET         | /api/room/detail/:room_id    | Get detail room chat       |
 
 ## About Project
 SayAPp is a project inspired by Telegram website version.
@@ -94,6 +96,11 @@ Fork the Project
 
 ## Related Project
 * [`Frontend SayApp`](https://github.com/defri-ansyah/SayApp-frontend)
+
+## Contact
+
+- Email - defriansyah013@gmail.com
+- LinkedIn - [Defri Ansyah](https://linkedin.com/in/defri-ansyah/)
 
 ---
 Copyright © 2020 [Defri Ansyah](https://github.com/defri-ansyah)
