@@ -1,16 +1,16 @@
+[![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
+![GitHub repo size](https://img.shields.io/github/repo-size/defri-ansyah/SayApp-backend)
+![GitHub contributors](https://img.shields.io/github/contributors/defri-ansyah/SayApp-backend)
+![GitHub stars](https://img.shields.io/github/stars/defri-ansyah/SayApp-backend)
+![GitHub forks](https://img.shields.io/github/forks/defri-ansyah/SayApp-backend)
+
 <p align="center">
   <a href="https://github.com/defri-ansyah/SayApp-backend">
     <img src="./logo.png"  width="200px" alt="Logo">
   </a>
 </p>
 
-<h3 align="center">SayApp</h3>
-
-[![Node JS](https://img.shields.io/badge/Dependencies-Express%20JS-green)](https://nodejs.org/en/)
-![GitHub repo size](https://img.shields.io/github/repo-size/defri-ansyah/SayApp-backend)
-![GitHub contributors](https://img.shields.io/github/contributors/defri-ansyah/SayApp-backend)
-![GitHub stars](https://img.shields.io/github/stars/defri-ansyah/SayApp-backend)
-![GitHub forks](https://img.shields.io/github/forks/defri-ansyah/SayApp-backend)
+<h1 align="center">SayApp</h1>
 
 <p align="center">
   <a href="https://nodejs.org/" target="blank">
